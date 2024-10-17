@@ -6,6 +6,13 @@ data "aws_subnet" "public_subnet_web_az1" {
   }
 }
 
+data "aws_subnet" "privatesubnet_app1"{
+    filter {
+      name = "tag:Name"
+      values = ["common_privatesubnet_app1"]
+    }
+}
+
 data "aws_security_group" "common_app_sg" {
   filter {
     name   = "tag:Name"
@@ -40,5 +47,4 @@ resource "aws_instance" "nginx" {
     ManagedBy   = "Terraform"
   }
 }
-
 
