@@ -19,11 +19,12 @@ resource "aws_instance" "nginx" {
   instance_type        = var.instance_type
   subnet_id            = data.aws_subnet.public_subnet_web_az1.id
   vpc_security_group_ids = [data.aws_security_group.common_app_sg.id]
-
+  key_name               = "instances.pem"
+  
   user_data = <<-EOF
               #!/bin/bash
-              yum update -y
-              yum install -y nginx
+              sudo apt-get update -y
+              sudo apt-get install -y nginx
               systemctl start nginx
               systemctl enable nginx
               EOF
@@ -34,7 +35,7 @@ resource "aws_instance" "nginx" {
   }
 
   tags = {
-    Name        = "EC2 public subnet"
+    Name        = "Nginx"
     Terraform   = "true"
     ManagedBy   = "Terraform"
   }

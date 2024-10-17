@@ -13,6 +13,7 @@ resource "aws_vpc" "common_account" {
 #creating a public subnet
 resource "aws_subnet" "publicsubnet_web1" {
     vpc_id = aws_vpc.common_account.id
+    map_public_ip_on_launch = true
     cidr_block = var.public_subnet_web_az1
     availability_zone = var.availability_zone_web_subnet1
     tags = {
@@ -25,6 +26,7 @@ resource "aws_subnet" "publicsubnet_web1" {
 resource "aws_subnet" "publicsubnet_web2" {
     vpc_id = aws_vpc.common_account.id
     cidr_block = var.public_subnet_web_az2
+    map_public_ip_on_launch = true
     availability_zone = var.availability_zone_web_subnet2
     tags = {
       Name = "common_publicsubnet_web2"
