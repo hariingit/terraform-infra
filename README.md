@@ -40,9 +40,33 @@ This Terraform configuration sets up a basic AWS infrastructure, including:
 
 ## Infrastructure Components
 
-* VPC: `terraform-vpc`
-	+ CIDR block: `10.0.0.0/16`
-	+ Region: `us-west-2`
+Subnet Types
+We have three types of subnets:
+Public: Hosts publicly accessible resources (e.g., web servers, load balancers)
+Private: Hosts internal resources (e.g., application servers, databases)
+Database: Hosts database instances
+Subnet Allocation
+The following table summarizes the subnet allocation:
+Subnet Type	Starting CIDR	Increment
+Public	195.0.0.0/20	+16
+Private	195.0.32.0/20	+16
+Database	195.0.64.0/20	+16
+Example Subnets
+Here are some example subnets:
+Subnet Name	CIDR Block	Availability Zone	IPs
+Public 1	195.0.0.0/20	AZ1	4096
+Public 2	195.0.16.0/20	AZ2	4096
+Private 1	195.0.32.0/20	AZ1	4096
+Private 2	195.0.48.0/20	AZ2	4096
+Database 1	195.0.64.0/20	AZ1	4096
+Database 2	195.0.80.0/20	AZ2	4096
+Benefits
+This subnet allocation strategy provides:
+Clear separation of public, private, and database resources
+Easy scalability and expansion
+Simplified network management and troubleshooting
+
+
 * EC2 instance: `terraform-ec2-instance`
 	+ AMI: `ami-xxxxxxxxxxxxxxxxx`
 	+ Instance type: `t2.micro`
