@@ -40,32 +40,72 @@ This Terraform configuration sets up a basic AWS infrastructure, including:
 
 ## Infrastructure Components
 
+Subnet Allocation Strategy
+================================
 Subnet Types
+---------------
 We have three types of subnets:
-Public: Hosts publicly accessible resources (e.g., web servers, load balancers)
-Private: Hosts internal resources (e.g., application servers, databases)
-Database: Hosts database instances
+1. Public
+---------------
+Hosts publicly accessible resources (e.g., web servers, load balancers)
+2. Private
+-------------
+Hosts internal resources (e.g., application servers, databases)
+3. Database
+-------------
+Hosts database instances
 Subnet Allocation
-The following table summarizes the subnet allocation:
+-------------------
 Subnet Type	Starting CIDR	Increment
 Public	195.0.0.0/20	+16
 Private	195.0.32.0/20	+16
 Database	195.0.64.0/20	+16
 Example Subnets
-Here are some example subnets:
-Subnet Name	CIDR Block	Availability Zone	IPs
-Public 1	195.0.0.0/20	AZ1	4096
-Public 2	195.0.16.0/20	AZ2	4096
-Private 1	195.0.32.0/20	AZ1	4096
-Private 2	195.0.48.0/20	AZ2	4096
-Database 1	195.0.64.0/20	AZ1	4096
-Database 2	195.0.80.0/20	AZ2	4096
-Benefits
-This subnet allocation strategy provides:
-Clear separation of public, private, and database resources
-Easy scalability and expansion
-Simplified network management and troubleshooting
-
+-----------------
+<table>
+<tr>
+<th>Subnet Name</th>
+<th>CIDR Block</th>
+<th>Availability Zone</th>
+<th>IPs</th>
+</tr>
+<tr>
+<td>Public 1</td>
+<td>195.0.0.0/20</td>
+<td>AZ1</td>
+<td>4096</td>
+</tr>
+<tr>
+<td>Public 2</td>
+<td>195.0.16.0/20</td>
+<td>AZ2</td>
+<td>4096</td>
+</tr>
+<tr>
+<td>Private 1</td>
+<td>195.0.32.0/20</td>
+<td>AZ1</td>
+<td>4096</td>
+</tr>
+<tr>
+<td>Private 2</td>
+<td>195.0.48.0/20</td>
+<td>AZ2</td>
+<td>4096</td>
+</tr>
+<tr>
+<td>Database 1</td>
+<td>195.0.64.0/20</td>
+<td>AZ1</td>
+<td>4096</td>
+</tr>
+<tr>
+<td>Database 2</td>
+<td>195.0.80.0/20</td>
+<td>AZ2</td>
+<td>4096</td>
+</tr>
+</table>
 
 * EC2 instance: `terraform-ec2-instance`
 	+ AMI: `ami-xxxxxxxxxxxxxxxxx`
