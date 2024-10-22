@@ -43,25 +43,42 @@ This Terraform configuration sets up a basic AWS infrastructure, including:
 Subnet Allocation Strategy
 ================================
 Subnet Types
----------------
+=====================
 We have three types of subnets:
 1. Public
----------------
 Hosts publicly accessible resources (e.g., web servers, load balancers)
 2. Private
--------------
 Hosts internal resources (e.g., application servers, databases)
 3. Database
--------------
 Hosts database instances
+
 Subnet Allocation
 -------------------
-Subnet Type	Starting CIDR	Increment
-Public	195.0.0.0/20	+16
-Private	195.0.32.0/20	+16
-Database	195.0.64.0/20	+16
 Example Subnets
 -----------------
+<table>
+<tr>
+<th>Subnet Type</th>
+<th>Starting CIDR</th>
+<th>Increment</th>
+</tr>
+<tr>
+<td>Public</td>
+<td>195.0.0.0/20</td>
+<td>+16</td>
+</tr>
+<tr>
+<td>Private</td>
+<td>195.0.32.0/20</td>
+<td>+16</td>
+</tr>
+<tr>
+<td>Database</td>
+<td>195.0.64.0/20</td>
+<td>+16</td>
+</tr>
+</table>
+
 <table>
 <tr>
 <th>Subnet Name</th>
