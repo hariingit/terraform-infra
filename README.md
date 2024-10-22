@@ -59,6 +59,6 @@ This Terraform configuration sets up a basic AWS infrastructure, including:
 
 * Fork this repository.
 * Make changes.
-* Submit pull request.
+* Submit pull request.![Publicsubnet drawio (2)](https://github.com/user-attachments/assets/595d036d-7cc7-41ad-bb70-c5a74e0e8421)
 
-![Infrastructure Diagram](./Publicsubnet.drawio)
+
