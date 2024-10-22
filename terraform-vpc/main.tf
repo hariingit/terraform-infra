@@ -36,7 +36,6 @@ resource "aws_subnet" "publicsubnet_web2" {
 }
 
 
-
 #creating a private subnet
 resource "aws_subnet" "privatesubnet_app1" {
     vpc_id = aws_vpc.common_account.id
@@ -124,6 +123,11 @@ resource "aws_route_table" "public-routetable" {
 
 resource "aws_route_table" "private-route-table" {
     vpc_id = aws_vpc.common_account.id
+    route {
+    cidr_block = "0.0.0.0/0"
+    nat_gateway_id = "nat-0613257deed4b98eb"
+  }
+
     tags = {
       Name = "private-route-table"
       Terraform   = "true"
